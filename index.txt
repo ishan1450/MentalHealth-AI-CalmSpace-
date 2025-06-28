@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mental Health AI Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Mental Health AI Assistant 🧠</h1>
+        <div id="chat-box" class="chat-box"></div>
+
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="How are you feeling today?" autofocus>
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById("user-input");
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            appendMessage("You", msg);
+            input.value = "";
+
+            const res = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: msg })
+            });
+
+            const data = await res.json();
+            appendMessage(`CalmSpace`, data.reply);
+        }
+
+        function appendMessage(sender, text) {
+            const chatBox = document.getElementById("chat-box");
+            const message = document.createElement("div");
+            message.className = sender === "You" ? "msg user" : "msg ai";
+            message.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            chatBox.appendChild(message);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</body>
+</html>

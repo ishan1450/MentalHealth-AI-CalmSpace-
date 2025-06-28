@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - CalmSpace</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <style>
+    .about-container {
+      margin-left: 250px; /* Matches sidebar width */
+      padding: 2rem;
+    }
+
+    .about-container h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-container p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
+      max-width: 800px;
+    }
+
+    .highlight {
+      color: #3b82f6;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Mental Health AI</h2>
+    <ul>
+      <li><a href="{{ url_for('index') }}">New Chat</a></li>
+      <li><a href="#">Saved Chats</a></li>
+      <li><a class="active" href="{{ url_for('about') }}">About</a></li>
+    </ul>
+  </div>
+
+  <div class="about-container">
+    <h1>About <span class="highlight">CalmSpace</span></h1>
+    <p>
+      <strong>CalmSpace</strong> is an AI-powered mental health companion created to support emotional well-being. 
+      This assistant is trained to have compassionate, empathetic, and supportive conversations, 
+      designed especially for users in India.
+    </p>
+    <p>
+      Whether you're feeling anxious, stressed, lonely, or just need someone to talk to, CalmSpace is here to listen—anytime, anywhere.
+    </p>
+    <p>
+      <strong>Note:</strong> CalmSpace is not a replacement for professional help. If you or someone you know is in crisis, please seek help from licensed professionals or contact a mental health helpline.
+    </p>
+    <p>
+      Built with ❤️ using Python (Flask), HTML, CSS, JS, and a fine-tuned AI model (Llama 3b).
+    </p>
+  </div>
+</body>
+</html>

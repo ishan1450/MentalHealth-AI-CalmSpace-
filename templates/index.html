@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mental Health AI</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>CalmSpace</h2>
+      <ul>
+        <li><a href="#">New Chat</a></li>
+        <li><a href="#">Saved Chats</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+      </ul>
+    </aside>
+    <main class="chat-area">
+      <div class="status-bar">
+        <span class="status-dot online"></span>
+        <span class="status-text">Online</span>
+      </div>
+      <div id="chat-box" class="chat-box"></div>
+      <div id="typing-indicator" class="typing-indicator hidden">Assistant is typing<span class="dots"></span></div>
+      <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Type your message..." required />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+  <script src="/static/script.js"></script>
+</body>
+</html>
